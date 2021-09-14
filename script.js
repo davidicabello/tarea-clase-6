@@ -1,13 +1,29 @@
-const $addFamilyMemberButton = document.querySelector('#mostrar-integrantes');
-
+const $addFamilyMemberButton = document.querySelector('#show-members');
 $addFamilyMemberButton.onclick = function () {
-    const $familyMembers = Number(document.querySelector('#cantidad-integrantes').value);
+    const $familyMembers = Number(document.querySelector('#member-amount').value);
     addFamilyMembers($familyMembers);
-    newButtonOnClick()
+    newButton()
     return false;
 }
 
-$newButton.onclick = function () {
+
+
+//Funciones 
+
+function addFamilyMembers(amount) {
+    for (let i = 0; i < amount; i++) {
+        const newLabel = document.createElement('label');
+        const newInput = document.createElement('input');
+        const $integrantes = document.querySelector('#members')
+        newLabel.textContent = 'Edad del integrante ';
+        newInput.type = 'number';
+        newInput.id = 'member-age';
+        $integrantes.appendChild(newLabel);
+        $integrantes.appendChild(newInput);
+    }
+}
+
+function showFinalResults() {
     let agesFinal = getAges();
     let $averageAge = document.querySelector('#average');
     $averageAge.innerText = calculateAverage(agesFinal).toFixed(2);
@@ -17,61 +33,20 @@ $newButton.onclick = function () {
     $oldestAge.innerText = findBiggest(agesFinal);
 }
 
-function addFamilyMembers(amount) {
-    for (let i = 0; i < amount; i++) {
-        const newLabel = document.createElement('label');
-        const newInput = document.createElement('input');
-        const $integrantes = document.querySelector('#integrantes')
-        newLabel.textContent = 'Edad del integrante ';
-        newInput.type = 'number';
-        newInput.id = 'integrantes-edad';
-        $integrantes.appendChild(newLabel);
-        $integrantes.appendChild(newInput);
-    }
-    /*const $newButton = document.querySelector('#new-button');
-    const newButton = document.createElement('button');
-    newButton.textContent = 'Calcular';
-    newButton.type = 'submit';
-    newButton.id = 'calcular-newbutton';
-    $newButton.appendChild(newButton)
-    $newButton.onclick = function () {
-        let agesFinal = getAges();
-        let $averageAge = document.querySelector('#average');
-        $averageAge.innerText = calculateAverage(agesFinal).toFixed(2);
-        let $minorAge = document.querySelector('#youngest');
-        $minorAge.innerText = findMinor(agesFinal);
-        let $oldestAge = document.querySelector('#oldest');
-        $oldestAge.innerText = findBiggest(agesFinal);
-    }*/
-}
-
-
-///mayor edad,la menor edad y el promedio del grupo familiar.
-
-
-
-
-function newButtonOnClick() {
+function newButton() {
     const $newButton = document.querySelector('#new-button');
     const newButton = document.createElement('button');
     newButton.textContent = 'Calcular';
     newButton.type = 'submit';
-    newButton.id = 'calcular-newbutton';
+    newButton.id = 'result-newbutton';
     $newButton.appendChild(newButton)
+    $newButton.onclick = function(){
+        showFinalResults() 
+    }
 }
 
-
-
-
-
-
-
-
-
-
-
 function getAges() {
-    let membersAges = document.querySelectorAll('#integrantes-edad')
+    let membersAges = document.querySelectorAll('#member-age')
     let ages = [];
     for (let i = 0; i < membersAges.length; i++) {
         ages.push(Number(membersAges[i].value));
@@ -80,7 +55,6 @@ function getAges() {
 
     return ages;
 }
-
 
 function calculateAverage(numbers) {
     let sum = 0;
