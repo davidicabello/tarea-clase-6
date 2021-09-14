@@ -2,12 +2,23 @@ const $addFamilyMemberButton = document.querySelector('#mostrar-integrantes');
 
 $addFamilyMemberButton.onclick = function () {
     const $familyMembers = Number(document.querySelector('#cantidad-integrantes').value);
-    addFamilyMemebrs($familyMembers);
+    addFamilyMembers($familyMembers);
+    newButtonOnClick()
     return false;
 }
 
-function addFamilyMemebrs(input) {
-    for (let i = 0; i < input; i++) {
+$newButton.onclick = function () {
+    let agesFinal = getAges();
+    let $averageAge = document.querySelector('#average');
+    $averageAge.innerText = calculateAverage(agesFinal).toFixed(2);
+    let $minorAge = document.querySelector('#youngest');
+    $minorAge.innerText = findMinor(agesFinal);
+    let $oldestAge = document.querySelector('#oldest');
+    $oldestAge.innerText = findBiggest(agesFinal);
+}
+
+function addFamilyMembers(amount) {
+    for (let i = 0; i < amount; i++) {
         const newLabel = document.createElement('label');
         const newInput = document.createElement('input');
         const $integrantes = document.querySelector('#integrantes')
@@ -17,60 +28,87 @@ function addFamilyMemebrs(input) {
         $integrantes.appendChild(newLabel);
         $integrantes.appendChild(newInput);
     }
-    const $newButton = document.querySelector('#new-button');
+    /*const $newButton = document.querySelector('#new-button');
     const newButton = document.createElement('button');
     newButton.textContent = 'Calcular';
     newButton.type = 'submit';
     newButton.id = 'calcular-newbutton';
     $newButton.appendChild(newButton)
     $newButton.onclick = function () {
-        let agesFinal = inputAgesOutcome();
+        let agesFinal = getAges();
         let $averageAge = document.querySelector('#average');
-        $averageAge.innerText = calculateAverageAge(agesFinal).toFixed(2);
+        $averageAge.innerText = calculateAverage(agesFinal).toFixed(2);
         let $minorAge = document.querySelector('#youngest');
-        $minorAge.innerText = findYoungest(agesFinal);
+        $minorAge.innerText = findMinor(agesFinal);
         let $oldestAge = document.querySelector('#oldest');
-        $oldestAge.innerText = findOldest(agesFinal);
-    }
+        $oldestAge.innerText = findBiggest(agesFinal);
+    }*/
 }
 
 
 ///mayor edad,la menor edad y el promedio del grupo familiar.
 
-function inputAgesOutcome() {
-    let familyMembersAges = document.querySelectorAll('#integrantes-edad')
+
+
+
+function newButtonOnClick() {
+    const $newButton = document.querySelector('#new-button');
+    const newButton = document.createElement('button');
+    newButton.textContent = 'Calcular';
+    newButton.type = 'submit';
+    newButton.id = 'calcular-newbutton';
+    $newButton.appendChild(newButton)
+}
+
+
+
+
+
+
+
+
+
+
+
+function getAges() {
+    let membersAges = document.querySelectorAll('#integrantes-edad')
     let ages = [];
-    for (let i = 0; i < familyMembersAges.length; i++) {
-        ages.push(Number(familyMembersAges[i].value));
+    for (let i = 0; i < membersAges.length; i++) {
+        ages.push(Number(membersAges[i].value));
 
-    } return ages;
-}
-
-
-function calculateAverageAge(input) {
-    let sum = 0;
-    for (let i = 0; i < input.length; i++) {
-        sum += input[i];
     }
-    return Number((sum / input.length));
+
+    return ages;
 }
 
-function findYoungest(input) {
-    let minorNumber = input[0];
-    for (let i = 0; i < input.length; i++) {
-        if (input[i] < minorNumber) {
-            minorNumber = input[i];
+
+function calculateAverage(numbers) {
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+    }
+
+    return sum / numbers.length;
+}
+
+function findMinor(numbers) {
+    let minorNumber = numbers[0];
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] < minorNumber) {
+            minorNumber = numbers[i];
         }
     }
+
     return minorNumber;
 }
 
-function findOldest(input) {
-    let biggerNumber = input[0];
-    for (let i = 0; i < input.length; i++) {
-        if (input[i] > biggerNumber) {
-            biggerNumber = input[i];
+function findBiggest(numbers) {
+    let biggestNumber = numbers[0];
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] > biggestNumber) {
+            biggestNumber = numbers[i];
         }
     }
-    return biggerNumber;
+
+    return biggestNumber;
 }
