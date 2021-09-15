@@ -2,7 +2,7 @@ const $addFamilyMemberButton = document.querySelector('#show-members');
 $addFamilyMemberButton.onclick = function () {
     const $familyMembers = Number(document.querySelector('#member-amount').value);
     addFamilyMembers($familyMembers);
-    newButton()
+    newButton();
     return false;
 }
 
@@ -14,7 +14,7 @@ function addFamilyMembers(amount) {
     for (let i = 0; i < amount; i++) {
         const newLabel = document.createElement('label');
         const newInput = document.createElement('input');
-        const $integrantes = document.querySelector('#members')
+        const $integrantes = document.querySelector('#members');
         newLabel.textContent = 'Edad del integrante ';
         newInput.type = 'number';
         newInput.id = 'member-age';
@@ -39,7 +39,7 @@ function newButton() {
     newButton.textContent = 'Calcular';
     newButton.type = 'submit';
     newButton.id = 'result-newbutton';
-    $newButton.appendChild(newButton)
+    $newButton.appendChild(newButton);
     $newButton.onclick = function(){
         showFinalResults() 
     }
