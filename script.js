@@ -6,15 +6,19 @@ $addFamilyMemberButton.onclick = function () {
         const $placeHolder = document.querySelector('#member-amount')
         $placeHolder.placeholder = 'Ingresa integrantes'
         return false;
-    } else {
+    } else if($familyMembers == $familyMembers){
         addFamilyMembers($familyMembers);
         newButton();
-        this.disabled = true
+        this.disabled = true;
         return false;
     }
 }
 
-
+function deleteCreatedInputs(typeInput) {
+    for (let i = 0; i < typeInput.length; i++) {
+        document.querySelector('result-newbutton').reset();
+    }
+}
 
 //Funciones calculations
 
@@ -55,6 +59,12 @@ function newButton() {
     $newButton.appendChild(newButton);
     $newButton.onclick = function () {
         showFinalResults()
+    }
+}
+
+function deleteCreatedInputs(newInput) {
+    for (let i = 0; i < newInput.length; i++) {
+        document.querySelector('result-newbutton').reset();
     }
 }
 
