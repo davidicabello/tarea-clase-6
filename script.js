@@ -3,6 +3,7 @@ $addFamilyMemberButton.onclick = function () {
     const $familyMembers = Number(document.querySelector('#member-amount').value);
     addFamilyMembers($familyMembers);
     newButton();
+    this.disabled =true
     return false;
 }
 

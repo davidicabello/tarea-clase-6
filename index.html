@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Tareas Clase 6</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
+
 <body>
     <form id="calcular-edades">
         <label for="member-amount">Ingrese la cantidad de integrantes</label>
-        <input type="number" name="integrantes" id="member-amount">
+        <input type="number" name="integrantes" id="member-amount" placeholder="">
         <button type="submit" id="show-members">Ingresar</button>
-        <button type="reset" >Resetear</button>
+        <button onClick="location.href=location.href" type="reset">Resetear</button>
     </form>
 
     <div id="members">
-        
+
     </div>
     <div id="new-button">
         <p>La edad mayor es: <strong id="oldest"></strong></p>
@@ -25,10 +28,14 @@
         <p>El promedio de edad es: <strong id="average"></strong></p>
     </div>
 
-    
-        
-    
+
+
+
 
     <script src='script.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
