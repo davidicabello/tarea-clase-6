@@ -15,12 +15,12 @@ function addFamilyMembers(amount) {
     for (let i = 0; i < amount; i++) {
         const newLabel = document.createElement('label');
         const newInput = document.createElement('input');
-        const $integrantes = document.querySelector('#members');
+        const $members = document.querySelector('#members');
         newLabel.textContent = 'Edad del integrante ';
         newInput.type = 'number';
         newInput.id = 'member-age';
-        $integrantes.appendChild(newLabel);
-        $integrantes.appendChild(newInput);
+        $members.appendChild(newLabel);
+        $members.appendChild(newInput);
     }
 }
 
