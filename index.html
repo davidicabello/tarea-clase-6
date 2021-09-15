@@ -6,22 +6,28 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Tareas Clase 6</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
 </head>
 
 <body>
-    <form id="calcular-edades">
+    <header id="header">
+        <h1>Calculador de edades</h1>
+    </header>
+    <form id="ages-calculator">
         <label for="member-amount">Ingrese la cantidad de integrantes</label>
         <input type="number" name="integrantes" id="member-amount" placeholder="">
         <button type="submit" id="show-members">Ingresar</button>
         <button onClick="location.href=location.href" type="reset">Resetear</button>
+
+
+        <div id="members">
+
+        </div>
     </form>
 
-    <div id="members">
-
-    </div>
     <div id="new-button">
         <p>La edad mayor es: <strong id="oldest"></strong></p>
         <p>La menor edad es: <strong id="youngest"></strong></p>
