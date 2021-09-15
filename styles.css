@@ -49,3 +49,6 @@ body{
     flex-direction: column;
     justify-content: center;
 }
+#age-input-label{
+    font-size: 2rem;
+}
