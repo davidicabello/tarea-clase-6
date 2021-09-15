@@ -6,20 +6,28 @@ $addFamilyMemberButton.onclick = function () {
         const $placeHolder = document.querySelector('#member-amount')
         $placeHolder.placeholder = 'Ingresa integrantes'
         return false;
-    } else if($familyMembers == $familyMembers){
+    } else if ($familyMembers == $familyMembers) {
+        deleteCreatedNumberInputs()
+        deleteCreatedLabels()
         addFamilyMembers($familyMembers);
         newButton();
-        this.disabled = true;
         return false;
     }
 }
 
-function deleteCreatedInputs(typeInput) {
-    for (let i = 0; i < typeInput.length; i++) {
-        document.querySelector('result-newbutton').reset();
+function deleteCreatedNumberInputs() {
+    const membersAges = document.querySelectorAll('#member-age');
+    for (let i = 0; i < membersAges.length; i++) {
+        membersAges[i].remove();
     }
 }
-
+function deleteCreatedLabels() {
+    const newLabel = document.querySelectorAll('#age-labels')
+    for (let i = 0; i < newLabel.length; i++) {
+        newLabel[i].remove();
+        
+    }
+}
 //Funciones calculations
 
 function addFamilyMembers(amount) {
@@ -59,12 +67,6 @@ function newButton() {
     $newButton.appendChild(newButton);
     $newButton.onclick = function () {
         showFinalResults()
-    }
-}
-
-function deleteCreatedInputs(newInput) {
-    for (let i = 0; i < newInput.length; i++) {
-        document.querySelector('result-newbutton').reset();
     }
 }
 
