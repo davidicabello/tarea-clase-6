@@ -9,7 +9,6 @@ $addFamilyMemberButton.onclick = function () {
     } else if($familyMembers == $familyMembers){
         addFamilyMembers($familyMembers);
         newButton();
-        this.disabled = true;
         return false;
     }
 }
