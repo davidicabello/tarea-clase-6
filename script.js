@@ -16,7 +16,7 @@ $addFamilyMemberButton.onclick = function () {
 
 
 
-//Funciones 
+//Funciones calculations
 
 function addFamilyMembers(amount) {
     for (let i = 0; i < amount; i++) {
