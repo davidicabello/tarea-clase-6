@@ -19,12 +19,12 @@
     </header>
 
     <form id="ages-calculator">
-        
-            <label id='age-input-label' for="member-amount">Ingrese la cantidad de integrantes</label>
-            <input type="number" id="member-amount" placeholder="">
-            <button type="submit" id="show-members">Ingresar</button>
-            <button onClick="location.href=location.href" type="reset" id="reset" >Resetear</button>
-        
+
+        <label id='age-input-label' for="member-amount">Ingrese la cantidad de integrantes</label>
+        <input type="number" id="member-amount" placeholder="">
+        <button type="submit" id="show-members">Ingresar</button>
+        <button onClick="location.href=location.href" type="reset" id="reset">Resetear</button>
+
 
         <div id="members">
 
@@ -36,6 +36,15 @@
         <p>La menor edad es: <strong id="youngest"></strong></p>
         <p>El promedio de edad es: <strong id="average"></strong></p>
     </div>
+
+    <form action="">
+        <!-- Rounded switch -->
+        <label for="switch" id="nightmode">NigthMode</label>
+        <label class="switch">
+            <input onclick="toggleDarkMode() " class="switch-button" type="checkbox">
+            <span class="slider round"></span>
+        </label>
+    </form>
 
     <div class="wrapper">
 

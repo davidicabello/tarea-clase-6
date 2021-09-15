@@ -109,3 +109,8 @@ function findBiggest(numbers) {
 
     return biggestNumber;
 }
+
+function toggleDarkMode() {
+    const darkMode = document.querySelector('body')
+    darkMode.classList.toggle('dark-mode');
+}
