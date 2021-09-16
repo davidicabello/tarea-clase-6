@@ -21,6 +21,7 @@ function deleteCreatedElements() {
     deleteCreatedNumberInputs()
     deleteCreatedLabels()
     deleteCreatedButtons()
+    deleteCreatedLabelsTwo()
 }
 
 function deleteCreatedNumberInputs() {
@@ -46,19 +47,36 @@ function deleteCreatedButtons() {
     }
 }
 
+function deleteCreatedLabelsTwo() {
+    const newLabelTwo = document.querySelectorAll('#member-age-two')
+    for (let i = 0; i < newLabelTwo.length; i++) {
+        newLabelTwo[i].remove();
+
+    }
+}
+
 
 
 function addFamilyMembers(amount) {
     for (let i = 0; i < amount; i++) {
         const newLabel = document.createElement('label');
         const newInput = document.createElement('input');
+        const newLabelTwo = document.createElement('label');
+        const newInputTwo = document.createElement('input');
         const $members = document.querySelector('#members');
+        newInputTwo.type = 'checkbox'
+        newInputTwo.id = 'member-age-two'
+        newLabelTwo.textContent = 'Trabaja?'
+        newLabelTwo.id = 'age-labels'
         newLabel.textContent = 'Edad del integrante ';
         newLabel.id = 'age-labels'
         newInput.type = 'number';
         newInput.id = 'member-age';
         $members.appendChild(newLabel);
         $members.appendChild(newInput);
+        $members.appendChild(newLabelTwo)
+        $members.appendChild(newInputTwo);
+
     }
 }
 
