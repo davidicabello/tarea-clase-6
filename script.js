@@ -20,7 +20,7 @@ $addFamilyMemberButton.onclick = function () {
 function deleteCreatedElements() {
     deleteCreatedNumberInputs()
     deleteCreatedLabels()
-    deleteCreatedButton()
+    deleteCreatedButtons()
 }
 
 function deleteCreatedNumberInputs() {
