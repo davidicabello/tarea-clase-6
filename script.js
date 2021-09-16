@@ -7,12 +7,20 @@ $addFamilyMemberButton.onclick = function () {
         $placeHolder.placeholder = 'Ingresa integrantes'
         return false;
     } else if ($familyMembers == $familyMembers) {
-        deleteCreatedNumberInputs()
-        deleteCreatedLabels()
+        deleteCreatedElements()
         addFamilyMembers($familyMembers);
         newButton();
         return false;
     }
+}
+
+
+
+
+function deleteCreatedElements() {
+    deleteCreatedNumberInputs()
+    deleteCreatedLabels()
+    deleteCreatedButton()
 }
 
 function deleteCreatedNumberInputs() {
@@ -21,14 +29,24 @@ function deleteCreatedNumberInputs() {
         membersAges[i].remove();
     }
 }
+
 function deleteCreatedLabels() {
     const newLabel = document.querySelectorAll('#age-labels')
     for (let i = 0; i < newLabel.length; i++) {
         newLabel[i].remove();
-        
+
     }
 }
-//Funciones calculations
+
+function deleteCreatedButtons() {
+    const $newButton = document.querySelectorAll('#result-newbutton')
+    for (let i = 0; i < $newButton.length; i++) {
+        $newButton[i].remove();
+
+    }
+}
+
+
 
 function addFamilyMembers(amount) {
     for (let i = 0; i < amount; i++) {
@@ -43,10 +61,6 @@ function addFamilyMembers(amount) {
         $members.appendChild(newInput);
     }
 }
-
-
-
-
 
 function showFinalResults() {
     let agesFinal = getAges();
@@ -81,6 +95,8 @@ function getAges() {
     return ages;
 }
 
+//Funciones calculations
+
 function calculateAverage(numbers) {
     let sum = 0;
     for (let i = 0; i < numbers.length; i++) {
@@ -111,6 +127,8 @@ function findBiggest(numbers) {
 
     return biggestNumber;
 }
+
+//DarkMode
 
 function toggleDarkMode() {
     const darkMode = document.querySelector('body')
